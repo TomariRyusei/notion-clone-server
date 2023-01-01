@@ -6,6 +6,9 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+app.use(express.json());
+app.use("/api/v1", require("./src/v1/routes/auth"));
+
 // DB接続
 try {
   mongoose.set("strictQuery", false);
