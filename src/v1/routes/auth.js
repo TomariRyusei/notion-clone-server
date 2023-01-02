@@ -16,10 +16,10 @@ router.post(
     .withMessage("ユーザー名は8文字以上である必要があります"),
   body("password")
     .isLength({ min: 8 })
-    .withMessage("パズワードは8文字以上である必要があります"),
-  body("comfirmPassword")
+    .withMessage("パスワードは8文字以上である必要があります"),
+  body("confirmPassword")
     .isLength({ min: 8 })
-    .withMessage("確認用パズワードは8文字以上である必要があります"),
+    .withMessage("確認用パスワードは8文字以上である必要があります"),
   body("username").custom((value) => {
     return User.findOne({ username: value }).then((user) => {
       if (user) {

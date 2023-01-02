@@ -28,10 +28,12 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ username });
     if (!user)
       return res.status(401).json({
-        errors: {
-          param: "username",
-          message: AUTH_ERROR_MSG,
-        },
+        errors: [
+          {
+            param: "username",
+            msg: AUTH_ERROR_MSG,
+          },
+        ],
       });
 
     // パスワード照合
@@ -42,10 +44,12 @@ exports.login = async (req, res) => {
 
     if (decrypttedPassword !== password)
       return res.status(401).json({
-        errors: {
-          param: "password",
-          message: AUTH_ERROR_MSG,
-        },
+        errors: [
+          {
+            param: "password",
+            msg: AUTH_ERROR_MSG,
+          },
+        ],
       });
 
     // JWT発行
