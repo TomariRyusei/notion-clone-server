@@ -3,7 +3,7 @@ const CryptoJS = require("crypto-js");
 
 const User = require("../models/user");
 
-const AUTH_ERROR_MSG = "ユーザー名もしくはパスワードが不正です";
+const AUTH_ERROR_MSG = "ユーザー名とパスワードが一致しません";
 
 // ユーザー新規登録
 exports.register = async (req, res) => {
